@@ -34,7 +34,7 @@ func checkHealthUntilDesiredCondition(c healthpb.HealthClient, service string, t
 			health, err = checkHealth(c, service, deadline.Sub(now))
 		} else { // time's up
 			if err == nil {
-				err = fmt.Errorf("too short timeout")
+				err = fmt.Errorf("timeout")
 			}
 			health = nil
 			return
